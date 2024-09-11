@@ -11,9 +11,9 @@ A API foi desenvolvida em PHP utilizando o framework Laravel.
 
 Versões utilizadas:
 
-PHP 8.3.x (com extensão pdo_pgsql)
-Composer 2.7.x
-PostgreSQL 16.x
+- PHP 8.3.x (com extensão pdo_pgsql)
+- Composer 2.7.x
+- PostgreSQL 16.x
 
 ### Local
 
