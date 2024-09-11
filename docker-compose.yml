@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: grandchef
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+    ports:
+      - "8000:8000"
+    depends_on:
+      - pgsql
+          
+  pgsql:
+    image: postgres:latest
+    container_name: grandchef_pgsql
+    environment:
+      POSTGRES_DB: grandchef
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
