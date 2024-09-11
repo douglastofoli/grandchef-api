@@ -11,7 +11,7 @@ class ProductTest extends TestCase
 {
     use RefreshDatabase;
     
-    public function test_it_creates_a_product_successfully(): void
+    public function test_it_can_create_a_product(): void
     {
         $category = Category::factory()->create();
 
@@ -27,7 +27,18 @@ class ProductTest extends TestCase
         ]);
     }
 
-    public function test_it_list_all_products_successfully(): void 
+    public function test_it_can_not_create_a_product(): void
+    {
+        $response = $this->postJson('/api/products', [
+            'name' => 'Refrigerante',
+            'price' => 5.5,
+            'category_id' => 100    
+        ]);
+
+        $response->assertStatus(400);
+    }
+
+    public function test_it_can_retrieve_a_product_list(): void 
     {
         $product = Product::factory()->create();
     

@@ -10,7 +10,7 @@ class CategoryTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_it_creates_a_category_successfully(): void
+    public function test_it_can_create_a_category(): void
     {
         $response = $this->postJson('/api/categories', [
             'name' => 'Bebidas'     
@@ -22,14 +22,14 @@ class CategoryTest extends TestCase
         ]);
     }
 
-    public function test_it_fails_to_create_a_category(): void
+    public function test_it_can_not_create_a_category(): void
     {
         $response = $this->postJson('/api/categories', []);
 
         $response->assertStatus(422);
     }    
 
-    public function test_it_list_all_categories_successfully(): void 
+    public function test_it_can_retrieve_a_category_list(): void 
     {
         Category::factory()->create();
     

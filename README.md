@@ -79,3 +79,11 @@ PUT http://127.0.0.1:8000/api/orders/{id}
 	"status": "completed"
 }
 ```
+
+## Testes
+
+Para executar os testes da aplicação use o comando:
+
+```
+php artisan test --coverage
+```
